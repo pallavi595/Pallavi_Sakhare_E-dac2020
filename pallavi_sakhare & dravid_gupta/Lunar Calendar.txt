@@ -1,0 +1,239 @@
+package mypackage;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class Calendar
+{
+    int i, j, monthno, end, date, start = 1;
+    public int usr_input;
+    String weekdays[] = {"sun", "mon", "tue", "wed", "thu", "fri", "sat"};
+    Scanner sc = new Scanner(System.in);
+
+    String oct_1 = "1-October-2020  Thursday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Shukla Paksha"+"\n"+"Tithi :- Paurnimaa"+"\n"+"Occassion :- -";
+    String oct_2 = "2-October-2020  Friday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Krishna Paksha"+"\n"+"Tithi :- Pratipada"+"\n"+"Occassion :- Gandhi Jayanti , Lalbahadur Shashtri Jayanti";
+    String oct_3 = "3-October-2020  Saturday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Krishna Paksha"+"\n"+"Tithi :- Dwitiya"+"\n"+"Occassion :- World Nature day";
+    String oct_4 = "4-October-2020  Sunday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Krishna Paksha"+"\n"+"Tithi :- Tritiya"+"\n"+"Occassion :- -";
+    String oct_5 = "5-October-2020  Monday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Krishna Paksha"+"\n"+"Tithi :- Chaturthi"+"\n"+"Occassion :- -";
+    String oct_6 = "6-October-2020  Tuesday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Krishna Paksha"+"\n"+"Tithi :- Panchami"+"\n"+"Occassion :- -";
+    String oct_7 = "7-October-2020  Wednesday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Krishna Paksha"+"\n"+"Tithi :- Shashthi"+"\n"+"Occassion :- -";
+    String oct_8 = "8-October-2020  Thursday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Krishna Paksha"+"\n"+"Tithi :- Saptami"+"\n"+"Occassion :- -";
+    String oct_9 = "9-October-2020  Friday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Krishna Paksha"+"\n"+"Tithi :- Ashtami"+"\n"+"Occassion :- -";
+    String oct_10 = "10-October-2020  Saturday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Krishna Paksha"+"\n"+"Tithi :- Navami"+"\n"+"Occassion :- -";
+    String oct_11 = "11-October-2020  Sunday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Krishna Paksha"+"\n"+"Tithi :- Dashami"+"\n"+"Occassion :- -";
+    String oct_12 = "12-October-2020  Monday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Krishna Paksha"+"\n"+"Tithi :- Ekaadashi"+"\n"+"Occassion :- Ekaadashi";
+    String oct_13 = "13-October-2020  Tuesday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Krishna Paksha"+"\n"+"Tithi :- Dwaadashi"+"\n"+"Occassion :- -";
+    String oct_14 = "14-October-2020  Wednesday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Krishna Paksha"+"\n"+"Tithi :- Trayodashi"+"\n"+"Occassion :- -";
+    String oct_15 = "15-October-2020  Thursday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Krishna Paksha"+"\n"+"Tithi :- Chaturdashi"+"\n"+"Occassion :- -";
+    String oct_16 = "16-October-2020  Friday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Krishna Paksha"+"\n"+"Tithi :- Amavasya"+"\n"+"Occassion :- Amavasya";
+    String oct_17 = "17-October-2020  Saturday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Shukla Paksha"+"\n"+"Tithi :- Pratipada"+"\n"+"Occassion :- Navratri";
+    String oct_18 = "18-October-2020  Sunday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Shukla Paksha"+"\n"+"Tithi :- Dwitiya"+"\n"+"Occassion :- -";
+    String oct_19 = "19-October-2020  Monday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Shukla Paksha"+"\n"+"Tithi :- Tritiya"+"\n"+"Occassion :- -";
+    String oct_20 = "20-October-2020  Tuesday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Shukla Paksha"+"\n"+"Tithi :- Chaturthi"+"\n"+"Occassion :- -";
+    String oct_21 = "21-October-2020  Wednesday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Shukla Paksha"+"\n"+"Tithi :- Panchami"+"\n"+"Occassion :- -";
+    String oct_22 = "22-October-2020  Thursday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Shukla Paksha"+"\n"+"Tithi :- Shashti"+"\n"+"Occassion :- -";
+    String oct_23 = "23-October-2020  Friday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Shukla Paksha"+"\n"+"Tithi :- Saptami"+"\n"+"Occassion :- -";
+    String oct_24 = "24-October-2020  Saturday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Shukla Paksha"+"\n"+"Tithi :- Ashtami"+"\n"+"Occassion :- -";
+    String oct_25 = "25-October-2020  Sunday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Shukla Paksha"+"\n"+"Tithi :- Navami"+"\n"+"Occassion :- Mahanavami,  Aayudh Pooja,  Dussehra,  Sarswati Pooja.";
+    String oct_26 = "26-October-2020  Monday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Shukla Paksha"+"\n"+"Tithi :- Dashami"+"\n"+"Occassion :- Vidyarambham";
+    String oct_27 = "27-October-2020  Tuesday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Shukla Paksha"+"\n"+"Tithi :- Ekadashi"+"\n"+"Occassion :- Ekadashi";
+    String oct_28 = "28-October-2020  Wednesday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Shukla Paksha"+"\n"+"Tithi :- Dwadashi"+"\n"+"Occassion :- -";
+    String oct_29 = "29-October-2020  Thursday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Shukla Paksha"+"\n"+"Tithi :- Trayodashi"+"\n"+"Occassion :- -";
+    String oct_30 = "30-October-2020  Friday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Shukla Paksha"+"\n"+"Tithi :- Chaturdashi"+"\n"+"Occassion :- -";
+    String oct_31 = "31-October-2020  Saturday"+"\n"+"Chandra Paurnimanta Maasa :- Aashwina Shukla Paksha"+"\n"+"Tithi :- Paurnimaa"+"\n"+"Occassion :- Paurnimaa";
+
+    String bday_1 = "1-October-2020  "+"\n"+"Name :- Nilesh N Swami";
+    String bday_2 = "3-October-2020  "+"\n"+"Name :- Dravid R Gupta";
+    String bday_3 = "4-October-2020  "+"\n"+"Name :- Arati R khamkar"+"\t"+"Jayant P Pawar";
+    String bday_4 = "7-October-2020  "+"\n"+"Name :- Dimpal V Mohod";
+    String bday_5 = "8-October-2020  "+"\n"+"Name :- Aashay G Horambe";
+    String bday_6 = "11-October-2020  "+"\n"+"Name :- Saumya Shrivastav";
+    String bday_7 = "14-October-2020  "+"\n"+"Name :- Rohit P Savde"+"\t"+"Shubham K Chaube";
+    String bday_8 = "17-October-2020  "+"\n"+"Name :- Aparna P Thakre";
+    String bday_9 = "19-October-2020  "+"\n"+"Name :- Aditya S Upadhyay";
+    String bday_10 = "21-October-2020  "+"\n"+"Name :- Anikiet Kurve"+"\t"+"Rushikesh D Joshi";
+    String bday_11 = "28-October-2020  "+"\n"+"Name :- Sneha R More";
+    String bday_12 = "29-October-2020  "+"\n"+"Name :- Abhishek N Ayare"+"\t"+"Shubham P Kothawade";
+
+
+    void october() {
+        date = 1;
+        monthno = 10;
+        end = 3;   //???????????????
+        if (end != 0) {
+            start = end + 1;//?????????
+        } else {
+            start = end + 1;//?????
+        }
+        System.out.println("------------------------OCTOBER 2020---------------------");
+        System.out.println("MONTH NO=" + monthno);
+        for (i = 0; i < weekdays.length; i++) {
+            System.out.print(weekdays[i] + "\t");
+        }
+        System.out.println();
+        for (i = 0; i < 5; i++) {
+            for (j = 0; j < 7; j++) {
+                if (date <= 31) {
+                    if (j < start && start >= 0) {  //??????????
+                        System.out.print(" " + "\t");
+                    } else {
+                        System.out.print(date + "\t");
+                        date++;
+                        end = j;
+                    }
+                }
+
+            }
+            start = -1;
+            System.out.println();
+            if (end == 6) end = 0;
+        }
+        System.out.println("------------------------------------------------------");
+    }
+
+    void festival_of_date()
+    {
+        HashMap<Integer,String> date = new HashMap<Integer,String>();
+
+        date.put(1,oct_1);
+        date.put(2,oct_2);
+        date.put(3,oct_3);
+        date.put(4,oct_4);
+        date.put(5,oct_5);
+        date.put(6,oct_6);
+        date.put(7,oct_7);
+        date.put(8,oct_8);
+        date.put(9,oct_9);
+        date.put(10,oct_10);
+        date.put(11,oct_11);
+        date.put(12,oct_12);
+        date.put(13,oct_13);
+        date.put(14,oct_14);
+        date.put(15,oct_15);
+        date.put(16,oct_16);
+        date.put(17,oct_17);
+        date.put(18,oct_18);
+        date.put(19,oct_19);
+        date.put(20,oct_20);
+        date.put(21,oct_21);
+        date.put(22,oct_22);
+        date.put(23,oct_23);
+        date.put(24,oct_24);
+        date.put(25,oct_25);
+        date.put(26,oct_26);
+        date.put(27,oct_27);
+        date.put(28,oct_28);
+        date.put(29,oct_29);
+        date.put(30,oct_30);
+        date.put(31,oct_31);
+
+        System.out.println("Please enter a date .");
+        int d = sc.nextInt();
+
+        if(date.containsKey(d))
+        {
+            System.out.println(date.get(d));
+            System.out.println("----------------------------------------------------");
+            input();
+
+        }
+        else
+        {
+            System.out.println("Entered wrong date . Please enter between 1 to 31 date");
+            festival_of_date();   // call recursively (festival_of_date)
+        }
+
+        System.out.println("----------------------------------------------------");
+        input();
+    }
+
+    void fest_of_month()
+    {
+        System.out.println("festival's of month.");
+        System.out.println("----------------------------------------------------");
+        System.out.println(oct_2+"\n\n"+oct_3+"\n\n"+oct_12+"\n\n"+oct_16+"\n\n"+oct_17+"\n\n"+oct_25+"\n\n"+oct_26+"\n\n"+oct_27+"\n\n"+oct_31);
+        System.out.println("----------------------------------------------------");
+        input();
+    }
+
+    void show_bdays()
+    {
+        HashMap<Integer,String> bday = new HashMap<>();
+
+        bday.put(1,bday_1);
+        bday.put(2,bday_2);
+        bday.put(3,bday_3);
+        bday.put(4,bday_4);
+        bday.put(5,bday_5);
+        bday.put(6,bday_6);
+        bday.put(7,bday_7);
+        bday.put(8,bday_8);
+        bday.put(9,bday_9);
+        bday.put(10,bday_10);
+        bday.put(11,bday_11);
+        bday.put(12,bday_12);
+
+        for(int x=1;x<=bday.size();x++)
+        {
+            if(bday.containsKey(x))
+            {
+                System.out.println(x+". "+ bday.get(x));
+            }
+
+        }
+
+        System.out.println("----------------------------------------------------");
+        input();
+    }
+
+    void input()
+    {
+        System.out.println("Please select any option :");
+        System.out.println("1. Festivals of specific date.");
+        System.out.println("2. Festival's of whole month.");
+        System.out.println("3. Show Birthday's whole month.");
+
+        usr_input = sc.nextInt();
+
+        if (usr_input == 1)
+        {
+            festival_of_date();
+        }
+        else
+            {
+            if (usr_input == 2)
+            {
+                fest_of_month();
+            }
+            else
+                {
+                if (usr_input == 3)
+                {
+                    show_bdays();
+                }
+                else
+                    {
+                        System.out.println("Please input within 1 to 3 number.");
+                        System.out.println("----------------------------------------------------");
+                        System.out.println("----------------------------------------------------");
+
+                        input();
+
+                    }
+                }
+            }
+        }
+}
+
+
+
+class Main
+{
+    public static void main(String[] args) {
+        Calendar c=new Calendar();
+
+        c.october();
+        c.input();
+
+    }
+}
