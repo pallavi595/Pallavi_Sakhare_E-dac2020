@@ -1,0 +1,144 @@
+create database Assignment5;
+show databases;
+use Assignment5;
+Create table EMP ( 
+			EMPNO numeric(4) not null, 
+            ENAME varchar(30) not null, 
+            JOB varchar(10), 
+            MGR numeric(4), 
+            HIREDATE date, 
+            SAL numeric(7,2), 
+            DEPTNO numeric(2) 
+            ); 
+            Insert into EMP values(1000,  'Manish' , 'SALESMAN', 1003,  '2020-02-18', 600,  30) ;
+            Insert into EMP values(1001,  'Manoj' , 'SALESMAN', 1003,  '2018-02-18', 600,  30) ;
+            Insert into EMP (EMPNO ,ENAME, JOB, MGR, HIREDATE, SAL, DEPTNO ) values(1002 , 'Ashish', 'SALESMAN',1003 , '2013-02-18',  750,  30 );
+            Insert into EMP (EMPNO ,ENAME, JOB, MGR, HIREDATE, SAL, DEPTNO ) values(1004,  'Rekha', 'ANALYST', 1006 , '2001-02-18', 3000,  10);
+Insert into EMP (EMPNO ,ENAME, JOB, MGR, HIREDATE, SAL, DEPTNO ) values(1005 , 'Sachin', 'ANALYST', 1006 ,  '2019-02-18', 3000, 10 );
+Insert into EMP (EMPNO ,ENAME, JOB, MGR, HIREDATE, SAL, DEPTNO ) values(1006,  'Pooja',  'MANAGER' , null    , '2000-02-18' ,6000, 10 );
+Insert into EMP (EMPNO ,ENAME, JOB, MGR, HIREDATE, SAL, DEPTNO ) values(1002 , 'Ashish', 'SALESMAN',1003 , '2013-02-18',  750,  30 );
+select * from emp;
+Create table dept (
+					dno numeric(4) not null, 
+					dname varchar(10) not null,
+                    area varchar(30)
+                    );
+
+Insert into dept(dno,dname,area) values(10,'Store','Mumbai');
+Insert into dept(dno,dname,area) values(20,'Purchase','Mumbai');
+Insert into dept(dno,dname,area) values(30,'Store', 'Delhi');
+Insert into dept(dno,dname,area) values(40,'Marketing','Pune');
+Insert into dept(dno,dname,area) values(50,'Finance','Delhi');
+Insert into dept(dno,dname,area) values(60,'Accounts','Mumbai');
+select * from dept;
+--	Write a Procedure that accepts values of two non-zero numbers using IN parameter and perform addition, 
+-- subtraction, multiplication, division and print.
+delimiter $$
+create procedure proc11(in val1 int, in val2 int)
+begin
+declare addition, substraction, multiplication int;
+declare division float;
+set addition= val1 + val2;
+set substraction= val1 - val2;
+set multiplication= val1 * val2;
+set division = val1 / val2;
+select addition, substraction,multiplication, division;
+end $$
+delimiter $$
+call proc11(10,5)$$
+call proc11(1,2)$$
+call proc11(4, 2)$$
+call proc11(1,5)$$
+
+
+-- 2.	Write a Procedure to print the string in REVERSE order.
+-- Take the input using IN parameter. (Ex .Database , o/p :esabatad)
+ 
+ delimiter $$
+ create procedure proc02( in str varchar(20))
+ begin
+ select reverse(str);
+ end $$
+ delimiter ;
+ call proc02 ('Arijit');
+ 
+ 
+ -- Write a Procedure to display top 5 employee based on highest salary and 
+ -- display employee number, employee name and salary.
+ 
+ delimiter $$
+ create procedure proc3( in len int)
+ begin
+ select empno,ename,sal from emp order by sal desc limit len;
+ end ##
+ delimiter ;
+ call proc3(5);
+ 
+ -- Write a Procedure to create table emp_test with e_id integer, 
+ -- e_name varchar(10), e_joining_date date as columns
+ 
+ delimiter $$
+ create procedure proc4()
+ begin
+ create table emp_test(e_id integer, e_name varchar(10), e_joining date);
+ end $$
+ delimiter ;
+ call proc4();
+ desc emp_test;
+ 
+ 
+-- Write a Procedure to add a department row in the DEPT table with the 
+-- following values for columns deptno  value 60, Dname  value should be  
+-- ‘Education’, area value should be Pune.
+
+
+desc dept;
+
+delimiter $$
+create procedure proc05()
+begin
+insert into dept values (60,'Education','Pune');
+end $$
+delimiter ;
+call proc05();
+ select * from dept;
+ 
+-- 6.	Write a program that declares an integer variable called num, assigns a 
+-- value to it and print, the value of the variable itself, its square, and its cube 
+ 
+ delimiter $$
+ create procedure proc6( in num int)
+ begin 
+ declare square,cube int;
+ set square = num*num;
+ set cube= num*num*num;
+ select square,cube;
+ end $$
+ delimiter ;
+ call proc6(5);
+ 
+ -- 7.	Write a program that declares an integer variable assign a value to it and display 
+ --      it using OUT parameter.
+ 
+delimiter ##
+create procedure proc7(out a1 int)
+begin
+declare val1 int default 10 ;
+set a1 = val1;
+end ##
+
+call proc7(@a1);
+select @a1;
+
+
+ 
+ -- Write a program that demonstrates the usage of IN and OUT parameters.
+  
+delimiter $$
+create procedure proc8(in e1 int , out len int )
+begin
+select length(ename) as len from emp where empno = e1;
+end $$
+
+call proc8( 1000 , @a1 )$$
+select @a1;
